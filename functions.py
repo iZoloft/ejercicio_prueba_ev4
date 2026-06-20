@@ -40,6 +40,12 @@ def _validar_lista(lista_envios):
         return True
     return False
 
+def traducir_estado(estado_booleano):
+    if estado_booleano == True:
+        return "En Ruta"
+    else:
+        return "En Bodega"
+
 def registrar_envio(lista_envios):
     while True:
         codigo = input("Ingrese código de seguimiento del paquete: \n").strip()
@@ -95,7 +101,5 @@ def mostrar_envios(lista_envios):
         print(f"Código: {e["codigo"]}")
         print(f"Peso: {e["peso"]} kg")
         print(f"Distancia: {e["distancia"]} km")
-        if e["despachado"] == True:
-            print("Estado: En Ruta")
-        else:
-            print("Estado: En Bodega")
+        estado_texto = traducir_estado(e['despachado'])
+        print(f"Estado: {estado_texto}")

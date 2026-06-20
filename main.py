@@ -71,10 +71,8 @@ while True:
             print(f"Código: {lista_envios[posicion]["codigo"]}")
             print(f"Peso: {lista_envios[posicion]["peso"]} kg")
             print(f"Distancia: {lista_envios[posicion]["distancia"]} km")
-            if lista_envios[posicion]["despachado"] == True:
-                print("Estado: En Ruta")
-            else:
-                print("Estado: En Bodega")
+            estado_texto = traducir_estado(lista_envios[posicion]['despachado'])
+            print(f"Estado: {estado_texto}")
         else:
             print("Envío no se encuentra registrado")
     elif opcion ==  3:
